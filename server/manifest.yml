@@ -1,11 +1,11 @@
   applications:
-  - name: djangoapp
+  - name: Vehicle-dealership
     routes:
-      - route: $HOST.$DOMAIN
+      - route: sfarragvehicle.us-east.mybluemix.net/
     memory: 128M
     buildpack: python_buildpack
-  - name: djangoapp-nginx
+  - name: Vehicle-app
     routes:
-      - route: $HOST.$DOMAIN/static
+      - route: sfarragvehicle.us-east.mybluemix.net/static
     memory: 128M
     buildpack: staticfile_buildpack
