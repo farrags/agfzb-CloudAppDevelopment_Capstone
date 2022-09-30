@@ -6,6 +6,46 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
     <body>
-    <!--Add a registration form here -->
+        <form action="{}" method="post">
+            <div class="container">
+              <h1>Sign Up</h1>
+              <hr>
+              <label for="username"><b>User Name</b></label>
+              <input type="text" placeholder="Enter User Name: " name="username" required>
+              <label for="firstname"><b>First Name</b></label>
+              <input type="text" placeholder="Enter First Name: " name="firstname" required>
+              <label for="lastname"><b>Last Name</b></label>
+              <input type="text" placeholder="Enter Last Name: " name="lastname" required>
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password: " name="psw" required>
+              <div>
+                  {% csrf_token %}
+                  <button class="button" type="submit">Sign Up</button>
+              </div>
+            </div>
+          </form>
+    <!--Add a registration form here 
+    {% if user.is_authenticated %}
+    <div class="rightalign">
+        <div class="dropdown">
+            <button class="dropbtn">{{user.first_name}}</button>
+            <div class="dropdown-content">
+                <a href="">Logout</a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="rightalign">
+        <div class="dropdown">
+            <form action="" method="get">
+                <input class="dropbtn"  type="submit" value="Visitor">
+                <div class="dropdown-content">
+                    <a href="">Signup</a>
+                    <a href="">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endif %}-->
     </body>
 </html>
