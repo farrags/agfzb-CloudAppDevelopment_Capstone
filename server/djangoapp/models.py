@@ -4,14 +4,29 @@ from django.utils.timezone import now
 
 # Create your models here.
 
-# <HINT> Create a Car Make model `class CarMake(models.Model)`:
-# - Name
-# - Description
-# - Any other fields you would like to include in car make model
-# - __str__ method to print a car make object
+class CarMake(models.Model):
+    car_name = models.CharField(max_length=25, help_text='Enter car make')
+    car_description = models.TextField()
+    
+    def __str__(self):
+        return self.type
 
+class CarModel(models.Model):
+    car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
+    name = models.CharField(max_length=25)
+    dealer_id = models.CharField(null=False, max_length=40,) 
+    SUV = "SUV"
+    Sedan = "Sedan"
+    Wagon = "Wagon"  
+    TYPE_CHOICES = [(SUV, 'SUV'),(Sedan, 'Sedan'),(Wagon, 'Wagon'),]
+    Type = models.CharField(
+        max_length=20,
+        choices=TYPE_CHOICES,
+    )
+    Year = models.DateField
+    def __str__(self):
+        return self.type
 
-# <HINT> Create a Car Model model `class CarModel(models.Model):`:
 # - Many-To-One relationship to Car Make model (One Car Make has many Car Models, using ForeignKey field)
 # - Name
 # - Dealer id, used to refer a dealer created in cloudant database
